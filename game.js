@@ -107,25 +107,29 @@ class Game{
                  
                  if (player.index !== null) {
                     //fill code here, to destroy the objects.
-                   //if(fruitGroup.x >= player.position.x - 75 || fruitGroup.x <= player.position.x + 75 && fruitGroup.y >= player.position.y){
-                       if(fruitGroup.isTouching(player1)){
-                       player1Score = player1Score + 1;
-                       //fruit.destroy();
+                       if(fruitGroup.isTouching(player1) || fruitGroup.isTouching(player2)){
+                        player.playerScore += 1;
+                       //player1Score = player1Score + 1;
                        fruitGroup.destroyEach();
+                       player.updateScore(playerScore);
+                       player.update();
                     }
-
-                    if(fruitGroup.isTouching(player2)){
-                        player2Score = player2Score + 1;
-                        //fruit.destroy();
+                    
+                    /*if(fruitGroup.isTouching(player2)){
+                        player.score = player.score + 1;
+                        //player2Score = player2Score + 1;
                         fruitGroup.destroyEach();
-                     }
+                        player.update(score);
+                     }*/
                  }
 
                  fill("white")
                  textSize(24);
-                 text("Player 1 Score: " + player1Score, 100, 50);
+                /*text("Player 1 Score: " + player1Score, 100, 50);
                  text("Player 2 Score: " + player2Score, 100, 100);
-                  
+                 */
+                 text("Players Score: " + player.playerScore, 100, 50);
+                 //text("Player 2 Score: " + player.score, 100, 100);
                   //drawSprites();
     }
 
