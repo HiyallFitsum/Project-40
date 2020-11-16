@@ -3,7 +3,8 @@ class Player {
         this.index = null;
         this.distance = 0;
         this.name = null;
-        this.playerScore =0;
+       // this.playerScore =0;
+       this.score = 0;
     }
 
     getCount() {
@@ -19,18 +20,18 @@ class Player {
         });
     }
 
-    updateScore(score) {
+    /*updateScore(score) {
         database.ref('/').update({
             playerScore: score 
         });
-    }
+    }*/
 
     update() {
         var playerIndex = "players/player" + this.index;
         database.ref(playerIndex).set({
             name: this.name,
             distance: this.distance,
-            //score:this.score
+            score:this.score
         });
     }
 

@@ -105,7 +105,7 @@ class Game{
                  
                  }
                  
-                 if (player.index !== null) {
+                 /*if (player.index !== null) {
                     //fill code here, to destroy the objects.
                        if(fruitGroup.isTouching(player1) || fruitGroup.isTouching(player2)){
                         player.playerScore += 1;
@@ -121,14 +121,26 @@ class Game{
                         fruitGroup.destroyEach();
                         player.update(score);
                      }*/
-                 }
 
-                 fill("white")
+                     if (player.index !== null) {
+                        for (var i = 0; i < fruitGroup.length; i++) {
+                            if (fruitGroup.get(i).isTouching(players)) {
+                                fruitGroup.get(i).destroy();
+                                player.score =player.score+1;
+                                player.update();
+                                
+                            }
+                            
+                        }
+                    }
+
+
+                 fill("white");
                  textSize(24);
-                /*text("Player 1 Score: " + player1Score, 100, 50);
-                 text("Player 2 Score: " + player2Score, 100, 100);
-                 */
-                 text("Players Score: " + player.playerScore, 100, 50);
+                 text("Player Score: " + player.score, 100, 50);
+                 //text("Player 2 Score: " + player.score, 100, 100);
+                 
+                 //text("Players Score: " + player.playerScore, 100, 50);
                  //text("Player 2 Score: " + player.score, 100, 100);
                   //drawSprites();
     }
